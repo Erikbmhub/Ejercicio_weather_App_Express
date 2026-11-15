@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+</head>
+<body>
+
+    <h1>Consulta el tiempo</h1>
+
+    <!-- Formulario para introducir la ciudad. -->
+    <form action="/" method="POST">
+        <label for="city">Introduce una ciudad:</label>
+        <input type="text" id="city" name="city" placeholder="Ej. Madrid" required>
+
+        <button type="submit">Buscar</button>
+    </form>
+
+    <!-- Mostramos el mensaje de error si existe. -->
+    <% if (error) { %>
+        <p style="color: red;"><%= error %></p>
+    <% } %>
+
+    <!-- Mostramos los datos meteorológicos si existen. -->
+    <% if (weather) { %>
+
+        <h2>Tiempo en <%= weather.name %></h2>
+
+        <p>Temperatura: <%= weather.main.temp %> °C</p>
+
+        <p>Descripción: <%= weather.weather[0].description %></p>
+
+        <p>Humedad: <%= weather.main.humidity %>%</p>
+
+    <% } %>
+
+</body>
+</html>
